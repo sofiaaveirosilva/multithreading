@@ -56,7 +56,7 @@
         }
 
         private bool isInitialized = false;
-        // we should lock always in a provate readonly instance of object:
+        // we should lock always in a private readonly instance of object:
         private readonly object socialNetworkLock = new object();
         private readonly string[] socialNetworkList = new string[5] { "Snapchat", "Instagram", "Slack", "Linkedin", "WhatsApp" };
 
