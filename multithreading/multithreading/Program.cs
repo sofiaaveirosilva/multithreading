@@ -21,13 +21,13 @@
 
         private static void Print1(string socialNetwork)
         {
-            //lock (socialNetworkLock)
-            //{
+            lock (socialNetworkLock)
+            {
                 if (socialNetwork.Equals("Twitter!"))
                 {
                     Console.WriteLine("Hello I received a message from " + socialNetwork);
                 }
-            //}
+            }
         }
 
         private static void Print2()
@@ -37,8 +37,8 @@
                 // we should avoid locking on any public or even a variable that it's in use,
                 // we should only lock in a private variable of type object, for example, that it
                 // is meant to serve only this purpose
-                //lock (socialNetworkLock)
-                //{
+                lock (socialNetworkLock)
+                {
                     //checks the state of the application
                     if (!isInitialized)
                     {
@@ -50,22 +50,21 @@
 
                         isInitialized = true;
                     }
-                //}
+                }
             }
         }
 
         private static void Print3(string socialNetwork)
         {
-            //lock (socialNetworkLock)
-            //{
+            lock (socialNetworkLock)
+            {
                 if (socialNetwork.Equals("Linkedin!"))
                 {
                     Console.WriteLine("Hello I received a message from " + socialNetwork);
                 }
-            //}
+            }
         }
 
-        private static bool _stopThreads = false;
         private static bool isInitialized = false;
         // we should lock always in a provate readonly instance of object:
         private static readonly object socialNetworkLock = new object();
